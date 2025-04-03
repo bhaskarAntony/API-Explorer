@@ -57,7 +57,7 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`} style={{overflow:'hidden'}}>
       {/* Header */}
       <header className={`p-4 ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'} shadow-md`}>
         <div className="flex items-center justify-between">
@@ -148,7 +148,7 @@ function App() {
             } shadow-lg`}>
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-semibold">Response</h2>
-                <button
+                {/* <button
                   onClick={downloadExcel}
                   disabled={!selectedPath.length}
                   className={`px-4 py-2 rounded-lg flex items-center gap-2 ${
@@ -159,7 +159,7 @@ function App() {
                 >
                   <Download size={20} />
                   Export to Excel
-                </button>
+                </button> */}
               </div>
               <JsonViewer
                 value={response}
@@ -220,7 +220,7 @@ function App() {
                 ))}
               </div>
               <button onClick={downloadExcel} disabled={!Object.values(selectedKeys).some(Boolean)}
-                className="mt-4 px-4 py-2 rounded-lg bg-green-500 text-white ${!Object.values(selectedKeys).some(Boolean) ? 'opacity-50 cursor-not-allowed' : ''}">
+                className={`mt-4 w-full flex items-center gap-2 px-4 py-2 rounded-lg bg-green-500 text-white ${!Object.values(selectedKeys).some(Boolean) ? 'opacity-50 cursor-not-allowed' : ''}`}>
                 <Download size={20} /> Export to Excel
               </button>
             </div>
